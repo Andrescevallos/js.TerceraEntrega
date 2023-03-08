@@ -1,10 +1,13 @@
+body{
+    background: rgb(0, 0, 0);}
 
 header{
     display: flex;
     margin: 50px 0;
+    padding: 30px 0;
     flex-wrap: wrap;
     justify-content: space-between;
-    background: lightblue;
+    background: pink;
 
 }
 
@@ -127,6 +130,56 @@ header{
 }
 
 
+/******************** PROMO *********************/
+
+.promo{
+    margin: 50px 100px;
+}
+
+.promouno{
+    display: flex;
+    justify-content: space-around;
+    height: 600px;
+    width: 85,5%;
+}
+.promouno-dos{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+.promodos{
+    background: rgb(5, 139, 0);
+}
+
+.promotres{
+    background: rgb(0, 58, 139);
+}
+
+.messiarg{
+    width: 500px;
+    height: 650px;
+}
+
+.estrella{
+    width: 60%;
+    margin-left: 100px;
+}
+
+.bannercampeon{
+    display: flex;
+    flex-direction: column  ;
+}
+.bannercampeon :nth-child(1){
+    font-size: 30px ;
+    text-align: center;
+}
+
+.bannercampeon :nth-child(2){
+    font-size: 70px ;
+    text-align: center;
+}
+
+
 /*****************************************************************************************************************/
 
 .divFunkos{
@@ -140,6 +193,7 @@ header{
     border: solid lightblue 1px;
     width: 250px;
     border-radius: 15px;
+    background: white;
 }
 
 .ordenInt{
@@ -218,7 +272,7 @@ header{
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: rgb(255, 0, 0);
+    background: rgb(255, 0, 247) ;
 }
 
 .posiCarrito i{
@@ -314,15 +368,26 @@ header{
 
 
 .btnFiltro{
-    border: lightblue solid 2px;
+    border: rgb(255, 0, 247) solid 2px;
+    margin-bottom: 15px
 }
 
 
 .btnFiltro:hover{
     border: rgb(0, 0, 0) solid 2px;
-    background: lightblue;  
+    background: rgb(255, 0, 247) ;  
 }
 
 .divCant{
     display: flex;
+}
+
+.btnAgregar{
+    background: pink ;
+    border-radius: 10px;
+}
+
+.fondo{
+background: linear-gradient(to left,grey, pink, grey);
+;
 }
