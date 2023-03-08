@@ -16,9 +16,9 @@ const vegeta = new funko (3, "Vegeta", 2200,"Dragon ball Z", "img/vegeta.jpg");
 const stich = new funko (4, "Stich", 1750, "Disney", "img/stich.jpg" );
 const grogu = new funko (5, "Grogu", 1300, "Star Wars", "img/grogu.jpg");
 const goku = new funko (6, "Goku", 2100,"Dragon ball Z", "img/goku.jpg");
-const legolas = new funko (7, "Legolas", 2100, "El señor de lso Anillos", "img/legolas.jpg");
+const legolas = new funko (7, "Legolas", 2100, "The lord of the ring", "img/legolas.jpg");
 const capitanAmerica = new funko (8, "Capitan America", 1900, "Marvel", "img/capitanamerica.jpg");
-const gandalf = new funko (9, "gandalf", 2000, "El señor de lso Anillos", "img/gandalf.jpg");
+const gandalf = new funko (9, "gandalf", 2000, "The lord of the ring", "img/gandalf.jpg");
 const messi = new funko (10, "Messi", 5000,"Deportes", "img/messi.webp");
 const laraCroft = new funko (11, "Lara Croft", 1300, "Tom Raider", "img/laracroft.jpg");
 const voldemort = new funko (12, "Voldemort", 1400, "Harry Potter",  "img/voldemort.jpg");
@@ -103,9 +103,9 @@ const mostrarCarrito = () =>{
                                     <h5 class="card-title">${funko.nombre}</h5>
                                     <h6 class="card-text">Precio: $${funko.precio}</h6>
                                     <div class = "masMenos">
-                                        <button id = "restar${funko.id}" class="btnRestar"><i class="fa-solid fa-minus"></i></button>
+                                        <button id = "restar${funko.id}" ><i class="fa-solid fa-minus btnRestar"></i></button>
                                         <p class="card-text"> ${funko.cantidad}</p>
-                                        <button id = "sumar${funko.id}" class="btnSumar"><i class="fa-solid fa-plus"></i></button>
+                                        <button id = "sumar${funko.id}" ><i class="fa-solid fa-plus btnSumar"></i></button>
                                     </div>
                                 </div>
                                 <button id = "eliminar${funko.id}" class="btnEliminar"><i class="fa-solid fa-trash"></i></button>
