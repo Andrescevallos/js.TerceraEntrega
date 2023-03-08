@@ -37,6 +37,9 @@ const arrayFunkos = [wolverine, harryPotter, vegeta, stich, grogu, goku, legolas
 
 let carrito = [];
 
+if(localStorage.getItem("carrito")){
+    carrito = JSON.parse(localStorage.getItem("carrito"))
+}
 
 const divFunkos = document.getElementById ("divFunkos")
 
@@ -83,6 +86,7 @@ const agregarAlCarrito = (id) =>{
 
     }
     console.log(carrito)
+    localStorage.setItem("carrito", JSON.stringify(carrito))
 }
 
 
@@ -135,6 +139,7 @@ const eliminarDelCarrito = (id) =>{
     carrito.splice(indice, 1)
     mostrarCarrito()
     totalCompra()
+    localStorage.setItem("carrito", JSON.stringify(carrito))
 
     
 }
@@ -145,13 +150,15 @@ const restarUno = (id) =>{
         masMenos.cantidad--
         mostrarCarrito()
         totalCompra()
+        
     }
     else{
         eliminarDelCarrito(funko.id)
         mostrarCarrito()
         totalCompra()
+        
     }
-
+    localStorage.setItem("carrito", JSON.stringify(carrito))
 }
 
 const sumarUno = (id) =>{
@@ -159,6 +166,7 @@ const sumarUno = (id) =>{
         masMenos.cantidad++
         mostrarCarrito()
         totalCompra()
+        localStorage.setItem("carrito", JSON.stringify(carrito))
     
 }
 
@@ -172,6 +180,7 @@ const vaciarCarrito = () =>{
     carrito = [];
     mostrarCarrito()
     totalCompra()
+    localStorage.clear()
 }
 
 const total = document.getElementById ("total")
