@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/cfb90e9f6b.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">  
+    <link rel="stylesheet" href="../estilo.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <title>Document</title>
+</head>
+<body class="finalizarFondo">
+    
+    <div >
+        <div class="container ">
+            <h1>Finalizar Compra</h1>
+
+            <div class="contenedorTarjeta">  
+                <div>
+                    <div class="detalle">
+                        <div>Precio final: <span id="totalFinalizar">0</span></div>
+                        <div>Cantidad de funkos: <span id="cantidadFinalizar">0</span></div>
+                    </div>
+
+                    <div class="tarjeta">
+                        <p class="nombreTitular">Nombre completo</p>
+                        <p class="fechaVec">Fecha venc.</p>
+                        <p class="numTarj">Numero de Tarjeta</p>
+                        <p class="codigoSeg">Codigo Seguridad</p>
+                        <div id="imgTarjeta" class="imgTarjeta"></div>
+                    </div>
+                </div> 
+                <div class="formTarjeta">
+                    <form action="">
+                        <fieldset>
+                            <div  class="datos">
+                                <div class="datosPersonales">
+                                    <label for="Nombre">Nombre</label>
+                                    <br>
+                                    <input class="" type="text" name="" id="Nombre" placeholder="Nombre (tarjeta)"> 
+                                    <br><br>
+                                    <label for="DNI">DNI</label>
+                                    <br>
+                                    <input class="" type="text" name="" id="DNI" placeholder="DNI"> 
+                                    <br><br>
+                                    <label for="Fecha">Fecha de vencimiento</label>
+                                    <br>
+                                    <div class="ordenFecha">
+                                        <input type="text" class="input" id="month" placeholder="MM" maxlength="2" required="">
+                                        <input type="text" class="input" id="year" placeholder="YY" maxlength="2" required="">
+                                    </div>
+                                </div>
+                                <div  class="datosTarjeta">
+                                    <label for="tarjeta">Numero de tarjeta</label>
+                                    <br>
+                                    <input class="" type="text" name="tarjeta" id="tarjeta" placeholder="Numero de tarjeta"> 
+                                    <br><br>
+                                    <label for="CVC">CVC</label>
+                                    <br>
+                                    <input class="" type="text" name="CVC" id="CVC" placeholder="CVC"> 
+                                    <br><br>
+                                    
+                                </div>
+
+
+                                
+                            </div>
+                            <button id="pagar">Finalizar compra</button>
+
+                        </fieldset>
+                    </form>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+
+    <section  class="asincronicoGral">
+        <img class="imgUno" src="../img/otros/amazing spiderman.png" alt="">
+        <!-- <img class="imgUno" src="../img/otros/coyote.png" alt="">
+        <img class="imgUno" src="../img/otros/spiderWoman.png" alt="">
+        <img class="imgUno" src="../img/otros/jacksparrow.png" alt="">
+        <img class="imgUno" src="../img/otros/poo.png" alt="">
+        <img class="imgUno" src="../img/otros/dinoBlue.png" alt="">
+-->
+      </section>  
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>    
+    <script src="../main.js"></script>
+    <script src="../finalizar.js"></script>
+</body>
+</html>
+ <section  id="contenedor" class="asincronicoGral">
+        <div id="contenedorUno" class="asincronicoUno">
+            <img id="imgAsinUno" class="imgUno" src="../img/otros/amazing spiderman.png" alt="">
+            <img id="imgAsinDos" class="imgUno" src="../img/otros/coyote.png" alt="">
+            <img id="imgAsinTres" class="imgUno" src="../img/otros/spiderWoman.png" alt="">
+            <img id="imgAsinCuatro" class="imgUno" src="../img/otros/jacksparrow.png" alt="">
+            <img id="imgAsinCinco" class="imgUno" src="../img/otros/poo.png" alt="">
+            <img id="imgAsinSeis" class="imgUno" src="../img/otros/dinoBlue.png" alt="">
+        </div>
+
+        <div id="contenedorDos" class="asincronicoDos">
+            <img id="imgAsinSiete" class="imgUno" src="../img/otros/sharknado.png" alt="">
+            <img id="imgAsinOcho" class="imgUno" src="../img/otros/homeroMuerte.png" alt="">
+            <img id="imgAsinNueve" class="imgUno" src="../img/otros/ironman final.png" alt="">
+            <img id="imgAsinDiez" class="imgUno" src="../img/otros/mandalorian.png" alt="">
+            <img id="imgAsinOnce" class="imgUno" src="../img/otros/charmander.png" alt="">
+            <img id="imgAsinDoce" class="imgUno" src="../img/otros/bobEsponja.png" alt="">
+        </div>
+
+        <div id="contenedorTres" class="asincronicoTres">
+            <img id="imgAsinTrece" class="imgUno" src="../img/otros/deadpoolUno.png" alt="">
+            <img id="imgAsinCatorce" class="imgUno" src="../img/otros/deadpoolRey.png" alt="">
+            <img id="imgAsinQuince" class="imgUno" src="../img/otros/deadpoolCinco.png" alt="">
+            <img id="imgAsindDiSeis" class="imgUno" src="../img/otros/deadpoolDos.png" alt="">
+            <img id="imgAsindDiSiete" class="imgUno" src="../img/otros/deadpoolCuatro.png" alt="">
+            <img id="imgAsindDiOcho" class="imgUno" src="../img/otros/deadpoolPorrista.png" alt="">
+        </div> 

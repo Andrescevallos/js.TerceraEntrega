@@ -37,6 +37,18 @@ const arrayFunkos = [wolverine, harryPotter, vegeta, stich, grogu, goku, legolas
 
 let carrito = [];
 
+class usuario{
+    constructor(id, nombre, apellido, email, contacto){
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+        this.contacto = contacto;
+    }
+}
+
+const usuarios = []
+
 if(localStorage.getItem("carrito")){
     carrito = JSON.parse(localStorage.getItem("carrito"))
 }
@@ -46,29 +58,32 @@ const divFunkos = document.getElementById ("divFunkos")
 const mostrarTodo = () =>{
     arrayFunkos.forEach(funko =>{
         const todos = document.createElement("div")
-    todos.classList.add("col-xl-3", "col-md-6", "col-sm-12");
-    todos.innerHTML = `
-                        <div class="ordenCard">
-                            <div class="ordenInt">
-                                <img src="${funko.img}" class="imgFunkos" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">${funko.nombre}</h5>
-                                    <p class="card-text">Precio: $${funko.precio}</p>
-                                    <button id = "agregar${funko.id}" class="btnAgregar">Agregar al carrito</button>
+        todos.classList.add("col-xl-3", "col-md-6", "col-sm-12");
+        todos.innerHTML = `
+                            <div class="ordenCard">
+                                <div class="ordenInt">
+                                    <img src="${funko.img}" class="imgFunkos" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${funko.nombre}</h5>
+                                        <p class="card-text">Precio: $${funko.precio}</p>
+                                        <button id = "agregar${funko.id}" class="btnAgregar">Agregar al carrito</button>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>`
-    
-    divFunkos.appendChild(todos)
+                            </div>`
+        
+        divFunkos.appendChild (todos)
 
-     const btnAgregar = document.getElementById(`agregar${funko.id}`)
-     btnAgregar.addEventListener("click", () =>{
-        agregarAlCarrito(funko.id)
-     })
+        const btnAgregar = document.getElementById(`agregar${funko.id}`)
+        btnAgregar.addEventListener("click", () =>{
+            agregarAlCarrito(funko.id);
+            toastiAgregardo()
+
+        })
     })
 }
 
 mostrarTodo()
+
 
 
 const agregarAlCarrito = (id) =>{
@@ -85,7 +100,10 @@ const agregarAlCarrito = (id) =>{
         totalCompra()
 
     }
+    
+
     console.log(carrito)
+    console.log(carrito.length)
     localStorage.setItem("carrito", JSON.stringify(carrito))
 }
 
@@ -113,7 +131,7 @@ const mostrarCarrito = () =>{
                             <hr>
                             `
         
-        divCarrito.appendChild(todos)
+        divCarrito.appendChild (todos)
 
         const btnEliminar = document.getElementById(`eliminar${funko.id}`)
         btnEliminar.addEventListener("click", () =>{
@@ -124,6 +142,7 @@ const mostrarCarrito = () =>{
         const btnRestar = document.getElementById(`restar${funko.id}`)
         btnRestar.addEventListener("click", () =>{
             restarUno(funko.id)
+            toastiMenos()
         })
 
         const btnSumar = document.getElementById(`sumar${funko.id}`)
@@ -139,6 +158,7 @@ const eliminarDelCarrito = (id) =>{
     carrito.splice(indice, 1)
     mostrarCarrito()
     totalCompra()
+    toastiEliminadp()
     localStorage.setItem("carrito", JSON.stringify(carrito))
 
     
@@ -161,11 +181,14 @@ const restarUno = (id) =>{
     localStorage.setItem("carrito", JSON.stringify(carrito))
 }
 
+
+
 const sumarUno = (id) =>{
     const masMenos = carrito.find(funko => funko.id === id)
         masMenos.cantidad++
         mostrarCarrito()
         totalCompra()
+        toastiAgregardo()
         localStorage.setItem("carrito", JSON.stringify(carrito))
     
 }
@@ -174,6 +197,7 @@ const btnLimpiarCarrito = document.getElementById("btnLimpiarCarrito")
 
 btnLimpiarCarrito.addEventListener("click", () =>{
     vaciarCarrito()
+    toastiVaciar()
 })
 
 const vaciarCarrito = () =>{
@@ -184,9 +208,6 @@ const vaciarCarrito = () =>{
 }
 
 const total = document.getElementById ("total")
-
-
-
 
 const totalCompra = () =>{
    let montoFinal = 0;
@@ -221,9 +242,6 @@ const buscarFunko = () =>{
             })
 
         }
-
-        if (buscador.innerHTML === "")
-                {buscador.innerHTML = "<span>No se encontro resultado</span>"}
         
 
     }
@@ -279,7 +297,7 @@ function ordenarPorPrecio(){
                                     </div>
                                 </div>`
 
-        divFunkos.appendChild(todosLosFunkos);
+        divFunkos.appendChild (todosLosFunkos);
 
     //FUNCION BOTON AGREGAR
         const btnAgregar = document.getElementById(`agregar${funko.id}`)
@@ -362,7 +380,7 @@ function ordenarPorProductora(){
                                     </div>
                                 </div>`
 
-        divFunkos.appendChild(todosLosFunkos);
+        divFunkos.appendChild (todosLosFunkos);
 
     //FUNCION BOTON AGREGAR
         const btnAgregar = document.getElementById(`agregar${funko.id}`)
@@ -374,3 +392,99 @@ function ordenarPorProductora(){
 
     console.log(arrayFunkos)
 }
+
+
+////////////////////////CLENTES///////////////////////////////
+
+
+
+
+
+///////////////////// TOASTIFY ////////////////////////////
+
+
+const toastiAgregardo = () =>{
+    Toastify({
+        text: "Funko Añadido al Carrito",
+        duration: 2500,
+        gravity: "top",
+        position: "right", 
+        stopOnFocus: true, 
+        style: {
+            background: "pink",
+            width: "250px",
+            fontSize: "14px",
+            fontFamily: '"Roboto", sans-serif',
+            fontWeight: "300",
+            textAlign: "center",
+            borderRadius: "50px",
+            border: "black solid 1px",
+            color: "black"
+        },
+    }).showToast();
+}
+
+const toastiMenos = () =>{
+    Toastify({
+        text: "Descartaste un elemento",
+        duration: 2500,
+        gravity: "top",
+        position: "right", 
+        stopOnFocus: true, 
+        style: {
+            background: "pink",
+            width: "250px",
+            fontSize: "14px",
+            fontFamily: '"Roboto", sans-serif',
+            fontWeight: "300",
+            textAlign: "center",
+            borderRadius: "50px",
+            border: "black solid 1px",
+            color: "black"
+        },
+    }).showToast();
+}
+
+const toastiVaciar = () =>{
+    Toastify({
+        text: "Carrito vacio :(",
+        duration: 2500,
+        gravity: "top",
+        position: "right", 
+        stopOnFocus: true, 
+        style: {
+            background: "pink",
+            width: "250px",
+            fontSize: "14px",
+            fontFamily: '"Roboto", sans-serif',
+            fontWeight: "300",
+            textAlign: "center",
+            borderRadius: "50px",
+            border: "black solid 1px",
+            color: "black"
+        },
+    }).showToast();
+}
+
+const toastiEliminadp = () =>{
+    Toastify({
+        text: "Funko eliminado",
+        duration: 2500,
+        gravity: "top",
+        position: "right", 
+        stopOnFocus: true, 
+        style: {
+            background: "pink",
+            width: "250px",
+            fontSize: "14px",
+            fontFamily: '"Roboto", sans-serif',
+            fontWeight: "300",
+            textAlign: "center",
+            borderRadius: "50px",
+            border: "black solid 1px",
+            color: "black"
+        },
+    }).showToast();
+}
+
+//////////////////////////////  CLIENTE   //////////////////////////////
